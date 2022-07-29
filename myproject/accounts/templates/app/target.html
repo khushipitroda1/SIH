@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} {% endblock title %}
+
+{% block main-content %}
+
+<section class="adminsidesec">
+    <div class="row">
+        <div class="col-md-2 border-end sidepanel">
+            <ul class="list-unstyled">
+                <hr><li class="d-grid"><a href="{% url 'home' %}" class="btn">Data</a></li><hr>
+                <li class="d-grid"><a href="{% url 'target' %}" class="btn">Targets</a></li><hr>
+            </ul>
+        </div>
+        
+        <div class="col-md-6 offset-md-2">
+                <div class="login-box">
+                  <form method="post" action="/target/">
+                    {% csrf_token %}
+                    <div class="signin" [hidden]="login">
+                      <h1 class="topline">Enter Url's</h1> <br />
+             
+                      <div class="input-field">
+                        <input id="url1" type="text" name="url1" placeholder="url1"/>
+                      </div>
+            
+                      <div class="input-field">
+                        <input id="url2" type="text" name="url2"placeholder="url2"/>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="url3" type="text" name="url3"placeholder="url3"/>
+                      </div>
+            
+            
+                      <div class="login-box-button">
+                        <button type="submit">
+                          <i class="fas fa-sign-in-alt"></i>
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+
+            
+        </div>
+    </div>
+    </section>
+
+{% endblock main-content %}

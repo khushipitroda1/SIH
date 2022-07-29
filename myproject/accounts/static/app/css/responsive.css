@@ -1,0 +1,8 @@
+@media screen and (max-width: 776px) {
+    .login-box {
+        padding: 4rem 2rem !important;
+        right: unset !important;
+        width: 50px !important;
+        max-width: 100px;
+   }
+}

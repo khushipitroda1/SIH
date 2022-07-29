@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+
+{% block main-content %}
+
+  <div class="columns ">
+    <div class="login-box usersidebox">
+      <form method="post" action="{% url 'submitnewsfromuser' %}">
+        {% csrf_token %}
+        <div class="signin" [hidden]="login">
+          <h2 class="topline mt-3">Enter for Verification</h2> <br />
+
+          <div class="input-field mt-3">
+            <textarea name="text1" id="" cols="43" class="form-control" rows="10" placeholder="Enter information for verification here.."></textarea>
+          </div>
+
+          
+
+
+          <div class="login-box-button">
+            <button type="submit">
+              <i class="fas fa-sign-in-alt"></i>
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+
+      {% if text1 %}
+        <h5 class="mt-5">News: {{text1}}</h5>
+        <br>
+        {% if result == True %}
+        <h5>Result: <span style="color:green">{{res}}</span></h5>
+        {% else %}
+        <h5>Result: <span style="color:red">{{res}}</span></h5>
+        {% endif %}
+        
+      {% endif %}
+  </div>
+</div>
+
+
+{% endblock main-content %}

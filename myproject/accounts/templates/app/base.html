@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Other CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+
+    <link rel="shortcut icon" href="{% static 'app/images/logo3.png' %}" type="image/x-icon">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.0/font/bootstrap-icons.min.css">
+
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+
+    <!--Custom Responsive CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/responsive.css' %}">
+
+    <title>{% block title %} {% endblock title %} </title>
+    
+</script>
+</head>
+<body>
+
+    <header id="header" class="fixed-top autohide navmenu">
+        <div class="container d-flex align-items-center">
+      
+          <a href="#home" class="logo me-auto"><img src="{% static 'app/images/logo4.png' %}" alt="" title="" />Satya</a>
+      
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="{% url 'userside' %}">Home</a></li>
+              {% comment %} <li><a class="nav-link scrollto" href="#about">About</a></li> {% endcomment %}
+              {% if request.session.session_key  %}
+              <li><a class="nav-link scrollto" href="{% url 'home' %}">Admin</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'change_password' %}">Change Password</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+              <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
+              {% endif %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+      
+        </div>
+      </header>
+
+
+    {% block main-content %} 
+    
+    {% endblock main-content %}
+
+
+    <!--Waypoint JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    
+    <!--Custom JS-->    
+    <script src="{% static 'app/js/main.js' %}"></script>
+
+    
+</body>
+</html>

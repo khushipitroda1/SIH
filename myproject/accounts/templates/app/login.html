@@ -1,0 +1,78 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+
+{% block main-content %}
+
+  <div class="columns ">
+    <div class="login-box">
+      <form method="post">
+        {% csrf_token %}
+        <div class="signin" [hidden]="login">
+          <h1 class="topline">Login</h1> <br />
+          <div class="input-field">
+            <select id="select" name = "dname"  value="{{pr.dname}}">
+              {% for i in department %}
+                <option value = "{{i}}" >{{i}}</option>
+              {% endfor %}
+            </select>    
+          </div>
+
+          <div class="input-field">
+            <input id="email" type="email" name="email" formControlName="email" pattern="[^ @]*@[^ @]*" placeholder="Input your Email" autocomplete="off" required />
+          </div>
+
+          <div class="input-field">
+            <input id="password" type="password" name="password" formControlName="password" placeholder="Password" required/>
+          </div>
+
+          <div class="mb-3">
+            <small class="text-danger">{{msg}}</small>
+         </div>
+
+         <div class="action">
+          <a href="{%url 'forgot_password' %}" class="forgot">Forgot Password?</a>
+        </div>
+
+          <div class="login-box-button">
+            <button type="submit">
+              <i class="fas fa-sign-in-alt"></i>
+              LOG IN
+            </button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+
+{% comment %} 
+<div class="login-area  pt-80 pb-80">
+  <div class="container">
+    <form method="post" > 
+      {% csrf_token %}
+      <div class="row">
+                <div class="col-md-3">
+
+                </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="customer-login text-left">
+            <h4 class="title-1 title-border text-uppercase mb-30">Registered customers</h4>
+              <label for="inputName" class="form-label">Department Name</label>
+              <select name = "dname" class="form-control" value="{{pr.dname}}">
+                {% for i in department %}
+                  <option value = "{{i}}" >{{i}}</option>
+                {% endfor %}
+              </select>    
+            <p class="text-gray">If you have an account with us, Please login!</p>
+            <input type="text" placeholder="username here..." name="username">
+            <input type="password" placeholder="Password" name="password">
+            <p><a href="{%url 'forgot_password' %}" class="text-gray">Forget your password?</a></p>
+            <input type="submit" data-text="login" class="button-one submit-button mt-15" value="login">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> {% endcomment %}
+
+{% endblock main-content %}

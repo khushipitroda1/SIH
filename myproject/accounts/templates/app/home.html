@@ -1,0 +1,73 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}HOME{% endblock title %}
+
+{% block main-content %}
+
+
+<section class="adminsidesec">
+<div class="row">
+  <div class="col-md-2 border-end sidepanel">
+    <ul class="list-unstyled">
+        <hr><li class="d-grid"><a href="{% url 'home' %}" class="btn">Data</a></li><hr>
+        <li class="d-grid"><a href="{% url 'target' %}" class="btn">Targets</a></li><hr>
+    </ul>
+</div>
+
+<div class="col-md-10 border-end">
+   <div class="content">
+    
+    <div class="container">
+      <!-- <h2 class="mb-5">Table #4</h2> -->
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr> 
+              <th scope="col">Sr No.</th>
+              <th scope="col">News</th>
+              <th scope="col">Resource</th>
+              <th scope="col">Accept/Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row">
+              <td>
+                1
+              </td>
+              <td>Hold your breath for 30 seconds, if you can do this, you don't have corona.</td>
+              <td>
+                Input from user
+              </td>
+              <td> <a href="{% url 'submitreport' %}"><input type="submit" class="btn btn-success btn-sm deletebtn" value="Accept"></a> 
+              <input type="submit" class="btn btn-danger btn-sm deletebtn" value="Reject"> </td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+
+            <tr scope="row">
+              <td>
+                2
+              </td>
+              <td>Coronavirus spreads through Xiaomi phones.</td>
+              <td>
+                Viral facebook post
+              </td>
+              <td> <a href="{% url 'submitreport' %}"><input type="submit" class="btn btn-success btn-sm deletebtn" value="Accept"></a> 
+              <input type="submit" class="btn btn-danger btn-sm deletebtn" value="Reject"> </td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+  </div>
+</div>
+</section>
+
+{% endblock main-content %}

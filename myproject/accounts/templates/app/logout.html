@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Logout {% endblock title %}
+
+{% block main-content %}
+
+<div class="columns ">
+    <div class="login-box">
+      <form method="post">
+        {% csrf_token %}
+        <center><p><h3>Are You Sure, <span style="color:red">You Want To Logout ?? </span> </h3></p></center>
+          <div class="login-box-button">
+            <button type="submit">
+              <i class="fas fa-sign-in-alt"></i>
+              LOG OUT
+            </button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+
+
+{% comment %} 
+<div class="content-body">
+    <center>
+        <div class="col-12" style="margin-top:15%">
+            <form method="post">
+                {% csrf_token  %}
+                <p>Are You Sure, <span style="color:red">You Want To Logout ?? </span></p>
+                <button class="form-control" style="width:15%;background-color:white" > Logout </button>
+            </form>
+        </div>
+    </center>
+</div> {% endcomment %}
+
+
+
+{% endblock main-content %}
